@@ -1,0 +1,2 @@
+#!/bin/bash
+R CMD BATCH --no-save --no-restore "/Users/atlan/Adv_computing/AdvComp_final_proj/MH_w_dnc.R" "/Users/atlan/Adv_computing/AdvComp_final_proj/out/run_MH_w_dnc.txt"

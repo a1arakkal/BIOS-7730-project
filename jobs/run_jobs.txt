@@ -1,0 +1,10 @@
+qsub -pe smp 25 -q AML-HM "/Users/atlan/Adv_computing/AdvComp_final_proj/jobs/MH_wo_dnc_cpp.txt"
+
+
+qsub -pe smp 25 -q AML-HM "/Users/atlan/Adv_computing/AdvComp_final_proj/jobs/MH_wo_dnc.txt"
+
+
+qsub -pe smp 25 -q AML-HM "/Users/atlan/Adv_computing/AdvComp_final_proj/jobs/MH_w_dnc_cpp.txt"
+
+
+qsub -pe smp 25 -q AML-HM "/Users/atlan/Adv_computing/AdvComp_final_proj/jobs/MH_w_dnc.txt"
