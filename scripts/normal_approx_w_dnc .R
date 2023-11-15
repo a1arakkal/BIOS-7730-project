@@ -97,25 +97,8 @@ par_fun <- function(K, NN = 1e4, burn_in_n = 1000){
   
   split_dat <- split(mod_dat, rep(1:K, length.out = nrow(mod_dat), each = ceiling(nrow(mod_dat)/K)))
   
-  cl <- makeCluster(min(detectCores(), K))
-  clusterExport(
-    cl,
-    c("inner_draws", "log_post_fun", "NN",
-      "optim_fun", "total_n"),
-    envir = environment()
-  )
-  clusterEvalQ(cl, {
-    library(MASS)
-  })
-  
-  results <- parLapply(
-    cl,
-    split_dat,
-    function(x){inner_draws(k_dat = x, NN = NN, total_n = total_n)}
-  )
-
-  stopCluster(cl)
-  gc()
+  results <- parallel::mclapply(split_dat, function(x){inner_draws(k_dat = x, NN = NN, total_n = total_n)},
+                                mc.cores = K, mc.preschedule = F)
   
   ########################
   #### Remove burn-in ####

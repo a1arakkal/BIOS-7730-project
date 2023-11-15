@@ -108,7 +108,7 @@ out <- run_MH(NN = 1e4)
 beta_draws <- out$beta_draws_mh
 acc_prob <- out$acc_prob
 
-time <- microbenchmark::microbenchmark(run_norm(NN = 1e4),
+time <- microbenchmark::microbenchmark(run_MH(NN = 1e4),
                                        unit = "s",
                                        times = 10)
 
@@ -137,7 +137,7 @@ results <- tibble(var = summary[,1],
 out <- list(result_table = results,
             comp_time = elapsed, 
             acc_prob = acc_prob,
-            ESS = coda::effectiveSize(full_data_draws))
+            ESS = coda::effectiveSize(beta_draws))
 
 save(out, beta_draws,
      file = "/Users/atlan/Adv_computing/AdvComp_final_proj/data/MH_full.Rdata")
