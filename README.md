@@ -10,19 +10,27 @@ The repository is structed as follows:
 # `scripts`
  - ## `Julia`
    -  ### `MH`
-     - `MH_w_dnc.jl`: Julia script implementing Metropolis–Hastings algorithm along with Divide and Conquer (D&C)-recentering approach
-     - `MH_wo_dnc.jl`: Julia script implementing Metropolis–Hastings algorithm along without D&C
+     - `MH_w_dnc.jl`: Julia script implementing Metropolis–Hastings algorithm along with Divide and Conquer (D&C)-recentering approach.
+     - `MH_wo_dnc.jl`: Julia script implementing Metropolis–Hastings algorithm along without D&C.
    -  ### `normal_approx`
+     - `normal_approx_w_dnc.jl`: Julia script implementing normal appoximation approach along with Divide and Conquer (D&C)-recentering approach. Here foward automatic differentiation is used in the optimization procedures.
+     - `normal_approx_wo_dnc.jl`: Julia script implementing normal appoximation approach along without D&C. Here foward automatic differentiation is used in the optimization procedures.
+     - `normal_approx_w_dnc_FD.jl`: Julia script implementing normal appoximation approach along with Divide and Conquer (D&C)-recentering approach. Here finite difference is used in the optimization procedures.
+     - `normal_approx_wo_dnc_FD.jl`: Julia script implementing normal appoximation approach along without D&C. Here finite difference is used in the optimization procedures.
  - ## `R`
    -  ### `MH`
-     - `MH_w_dnc.jl`: R script implementing Metropolis–Hastings algorithm along with Divide and Conquer (D&C)-recentering approach
-     - `MH_wo_dnc.jl`: R script implementing Metropolis–Hastings algorithm along without D&C
+     - `MH_w_dnc.R`: R script implementing Metropolis–Hastings algorithm along with Divide and Conquer (D&C)-recentering approach.
+     - `MH_wo_dnc.R`: R script implementing Metropolis–Hastings algorithm along without D&C.
    -  ### `normal_approx`
+     - `normal_approx_w_dnc.R`: R script implementing normal appoximation approach along with Divide and Conquer (D&C)-recentering approach. Here finite difference is used in the optimization procedures.
+     - `normal_approx_wo_dnc.R`: R script implementing normal appoximation approach along without D&C. Here finite difference is used in the optimization procedures.
  - ## `Rcpp`
    - Note all Rcpp functions used in the various analyses can be found in the DNC package in the following GitHub repository: https://github.com/a1arakkal/DNC/tree/main
    -  ### `MH`
-     - `MH_w_dnc.jl`: R script implementing Metropolis–Hastings algorithm along with Divide and Conquer (D&C)-recentering approach
-     - `MH_wo_dnc.jl`: R script implementing Metropolis–Hastings algorithm along without D&C
+     - `MH_w_dnc.R`: R script with Rcpp integration implementing Metropolis–Hastings algorithm along with Divide and Conquer (D&C)-recentering approach.
+     - `MH_wo_dnc.R`: R script with Rcpp integration implementing Metropolis–Hastings algorithm along without D&C.
    -  ### `normal_approx`
+     - `normal_approx_w_dnc.R`: R script with Rcpp integration implementing normal appoximation approach along with Divide and Conquer (D&C)-recentering approach. Here finite difference is used in the optimization procedures.
+     - `normal_approx_wo_dnc.R`: R script with Rcpp integration implementing normal appoximation approach along without D&C. Here finite difference is used in the optimization procedures.
  - ## `sim_data.R`
    - Conatins the R-script to generate the simulated logistic regression data used in the various analyses.
