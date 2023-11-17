@@ -10,13 +10,13 @@ The repository is structed as follows:
 # `scripts`
  - ## `Julia`
    -  ### `MH`
-     - `MH_w_dnc.jl`: Julia script implementing Metropolis–Hastings algorithm along with Divide and Conquer (D&C)-recentering approach.
-     - `MH_wo_dnc.jl`: Julia script implementing Metropolis–Hastings algorithm along without D&C.
+      - `MH_w_dnc.jl`: Julia script implementing Metropolis–Hastings algorithm along with Divide and Conquer (D&C)-recentering approach.
+      - `MH_wo_dnc.jl`: Julia script implementing Metropolis–Hastings algorithm along without D&C.
    -  ### `normal_approx`
-     - `normal_approx_w_dnc.jl`: Julia script implementing normal appoximation approach along with Divide and Conquer (D&C)-recentering approach. Here foward automatic differentiation is used in the optimization procedures.
-     - `normal_approx_wo_dnc.jl`: Julia script implementing normal appoximation approach along without D&C. Here foward automatic differentiation is used in the optimization procedures.
-     - `normal_approx_w_dnc_FD.jl`: Julia script implementing normal appoximation approach along with Divide and Conquer (D&C)-recentering approach. Here finite difference is used in the optimization procedures.
-     - `normal_approx_wo_dnc_FD.jl`: Julia script implementing normal appoximation approach along without D&C. Here finite difference is used in the optimization procedures.
+      - `normal_approx_w_dnc.jl`: Julia script implementing normal appoximation approach along with Divide and Conquer (D&C)-recentering approach. Here foward automatic differentiation is used in the optimization procedures.
+      - `normal_approx_wo_dnc.jl`: Julia script implementing normal appoximation approach along without D&C. Here foward automatic differentiation is used in the optimization procedures.
+      - `normal_approx_w_dnc_FD.jl`: Julia script implementing normal appoximation approach along with Divide and Conquer (D&C)-recentering approach. Here finite difference is used in the optimization procedures.
+      - `normal_approx_wo_dnc_FD.jl`: Julia script implementing normal appoximation approach along without D&C. Here finite difference is used in the optimization procedures.
  - ## `R`
    -  ### `MH`
      - `MH_w_dnc.R`: R script implementing Metropolis–Hastings algorithm along with Divide and Conquer (D&C)-recentering approach.
