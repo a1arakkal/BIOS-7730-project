@@ -29,7 +29,7 @@ The repository is structed as follows:
       - `normal_approx_w_dnc.R`: R script implementing normal appoximation approach along with Divide and Conquer (D&C)-recentering approach. Here finite difference is used in the optimization procedures.
       - `normal_approx_wo_dnc.R`: R script implementing normal appoximation approach along without D&C. Here finite difference is used in the optimization procedures.
     -  ### `glm.R`
-      - R script to run simple logistic regression model on the full data.
+       - R script to run simple logistic regression model on the full data.
  - ## `Rcpp`
    - Note all Rcpp functions used in the various analyses can be found in the DNC package in the following GitHub repository: https://github.com/a1arakkal/DNC/
    -  ### `MH`
