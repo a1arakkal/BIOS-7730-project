@@ -8,3 +8,7 @@ The repository is structed as follows:
   - contains the job text files used for HPC job submisson 
 
 # `scripts`
+## `Julia`
+## `R`
+## `Rcppp`
+## `sim_data.R`
