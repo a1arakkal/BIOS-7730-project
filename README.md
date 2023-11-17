@@ -9,7 +9,13 @@ The repository is structed as follows:
 
 # `scripts`
  - ## `Julia`
+   -  ### `MH`
+   -  ### `normal_approx`
  - ## `R`
+   -  ### `MH`
+   -  ### `normal_approx`
  - ## `Rcppp`
+   -  ### `MH`
+   -  ### `normal_approx`
  - ## `sim_data.R`
    - Conatins the R-script to generate the simulated logistic regression data used in the various analyses.
