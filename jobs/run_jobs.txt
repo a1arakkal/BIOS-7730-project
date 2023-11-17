@@ -8,3 +8,6 @@ qsub -pe smp 25 -q AML-HM "/Users/atlan/Adv_computing/AdvComp_final_proj/jobs/MH
 
 
 qsub -pe smp 25 -q AML-HM "/Users/atlan/Adv_computing/AdvComp_final_proj/jobs/MH_w_dnc.txt"
+
+
+qsub -pe smp 25 -q AML-HM "/Users/atlan/Adv_computing/AdvComp_final_proj/jobs/MH_w_dnc_julia.txt"

@@ -30,8 +30,7 @@ function inner_draws(k_dat, NN, total_n)
 
   ## Run Normal Approx 
   ratio = total_n/size(k_dat)[1]
-  obj = TwiceDifferentiable(theta -> -1.0*log_post_fun(theta, x, y, ratio, sigma, mu), vec(zeros(size(x)[2], 1));
-                            autodiff=:forward)
+  obj = TwiceDifferentiable(theta -> -1.0*log_post_fun(theta, x, y, ratio, sigma, mu), vec(zeros(size(x)[2], 1)))
 
   Opt = optimize(obj, vec(zeros(size(x)[2], 1)), BFGS(),
                  Optim.Options(x_tol = 1e-8,
@@ -96,6 +95,6 @@ beta_draws = par_fun(10000)
 Random.seed!(123123)
 time = @elapsed beta_draws = par_fun(10000)
 time = round(time, digits = 4)
-CSV.write("/Users/atlan/Adv_computing/AdvComp_final_proj/data/normal_approx_dnc_$time.csv", 
+CSV.write("/Users/atlan/Adv_computing/AdvComp_final_proj/data/normal_approx_dnc_FD_$time.csv", 
           DataFrame(Matrix(beta_draws)))
 

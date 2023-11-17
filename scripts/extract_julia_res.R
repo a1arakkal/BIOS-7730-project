@@ -4,7 +4,10 @@ library(coda)
 
 path <- "/Volumes/argon_home/Adv_computing/AdvComp_final_proj/data/"
 
-beta_draws <- read_csv(paste0(path, "normal_approx_dnc_6.9279.csv"))
+# beta_draws <- read_csv(paste0(path, "normal_approx_full_136.888.csv"))
+# beta_draws <- read_csv(paste0(path, "normal_approx_full_FD_1694.0204.csv"))
+# beta_draws <- read_csv(paste0(path, "normal_approx_dnc_5.7441.csv"))
+# beta_draws <- read_csv(paste0(path, "normal_approx_dnc_FD_82.5457.csv"))
 
 summary <- describe_posterior(as.data.frame(beta_draws))
 hpd <- hdi(as.data.frame(beta_draws))

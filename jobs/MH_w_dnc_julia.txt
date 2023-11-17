@@ -1,0 +1,4 @@
+#!/bin/bash
+module load stack/2022.2
+module load julia/1.8.3_gcc-9.5.0
+julia --threads=25 "/Users/atlan/Adv_computing/AdvComp_final_proj/MH_w_dnc.jl" "/Users/atlan/Adv_computing/AdvComp_final_proj/out/run_MH_w_dnc_julia.txt"

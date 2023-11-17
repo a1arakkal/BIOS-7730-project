@@ -47,8 +47,7 @@ function run_norm(NN = 10000)
   #### Run Normal Approx ####
   ###########################
 
-  obj = TwiceDifferentiable(theta -> -1.0*log_post_fun(theta, x, y, sigma, mu), vec(zeros(size(mod_dat)[2]-1, 1));
-                            autodiff=:forward)
+  obj = TwiceDifferentiable(theta -> -1.0*log_post_fun(theta, x, y, sigma, mu), vec(zeros(size(mod_dat)[2]-1, 1)))
 
   Opt = optimize(obj, vec(zeros(size(mod_dat)[2]-1, 1)), BFGS(),
                  Optim.Options(x_tol = 1e-8,
@@ -70,5 +69,5 @@ beta_draws = run_norm(10000)
 Random.seed!(123123)
 time = @elapsed beta_draws = run_norm(10000)
 time = round(time, digits = 4)
-CSV.write("/Users/atlan/Adv_computing/AdvComp_final_proj/data/normal_approx_full_$time.csv", 
+CSV.write("/Users/atlan/Adv_computing/AdvComp_final_proj/data/normal_approx_full_FD_$time.csv", 
           DataFrame(Matrix(beta_draws)))
