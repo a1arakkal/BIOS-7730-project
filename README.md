@@ -32,7 +32,7 @@ The repository is structed as follows:
     - ### `sim_data.R`
       - R-script to generate the simulated logistic regression data used in the various analyses.
     -  ### `extract_results.R`
-      - R script to extract results from all methods employed in the various analyses. Also contains scripts to plot comparisons of results. 
+        - R script to extract results from all methods employed in the various analyses. Also contains scripts to plot comparisons of results. 
     
  - ## `Rcpp`
    - Note all Rcpp functions used in the various analyses can be found in the DNC package in the following GitHub repository: https://github.com/a1arakkal/DNC/
