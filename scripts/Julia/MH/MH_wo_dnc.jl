@@ -83,5 +83,5 @@ time = round(time, digits = 4)
 CSV.write("/Users/atlan/Adv_computing/AdvComp_final_proj/data/MH_full_$time.csv", 
           DataFrame(Matrix(beta_draws)))
 CSV.write("/Users/atlan/Adv_computing/AdvComp_final_proj/data/MH_full_acc_prob_$time.csv", 
-          DataFrame(Matrix(acc_prob)))
+          DataFrame(reshape([acc_prob], length([acc_prob]), 1)))
 
