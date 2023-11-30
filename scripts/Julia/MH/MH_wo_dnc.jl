@@ -8,11 +8,11 @@ Threads.nthreads()
 #### Functions ####
 ###################
 
-function log_post_fun(param, x, y, ratio, sigma, mu)
+function log_post_fun(param, x, y, sigma, mu)
     p = 1 ./ (1 .+ exp.(-x * param))
     loglike = sum(logpdf.(Binomial.(1, p), y))
     logprior = logpdf(MvNormal(vec(mu), sigma), param)[1,1]
-    return (ratio*loglike) + logprior
+    return loglike + logprior
 end
        
 #######################
@@ -36,14 +36,13 @@ function run_MH(NN = 10000, burn_in = 1000)
 
   # Add vector of 1s for intercept 
   y = mod_dat[:, 1]
-  x = [ones(size(mod_dat)[1]) mod_dat[:, 2:size(mod_dat)[2]]]
-  ratio = total_n/size(mod_dat)[1]
+  x = Matrix([ones(size(mod_dat)[1]) mod_dat[:, 2:size(mod_dat)[2]]])
 
   ## Run MH
   acc_count = 0
   sd_prop = 0.02
 
-  fm = @formula(x1 ~ x2 + x3 + x4+ x5)
+  fm = @formula(y ~ X1 + X2 + X3 + X4)
   logit = glm(fm, DataFrame(mod_dat), Binomial(), LogitLink())
   temp = GLM.coeftable(logit)
   proposal_cov = convert(Matrix, Diagonal(temp.cols[2].^2)*sd_prop)
@@ -58,7 +57,7 @@ function run_MH(NN = 10000, burn_in = 1000)
     ## Draw beta
     beta_proposal = rand(MvNormal(beta_draws_mh[i,:], proposal_cov), 1)
 
-    acc_prob = exp(log_post_fun(beta_proposal, x, y, ratio, sigma, mu) - log_post_fun(beta_draws_mh[i,:], x, y, ratio, sigma, mu))
+    acc_prob = exp(log_post_fun(beta_proposal, x, y, sigma, mu) - log_post_fun(beta_draws_mh[i,:], x, y, sigma, mu))
     
     if (rand(Uniform(0,1), 1)[1] < acc_prob)
       beta_draws_mh[i,:] = beta_proposal
@@ -76,12 +75,12 @@ function run_MH(NN = 10000, burn_in = 1000)
 
 end
 
-@time beta_draws, acc_prob  = run_MH(100, 10)
+time_run = @elapsed beta_draws, acc_prob  = run_MH(100, 10)
 Random.seed!(123123)
-time = @elapsed beta_draws, acc_prob = run_MH(10000, 1000)
-time = round(time, digits = 4)
-CSV.write("/Users/atlan/Adv_computing/AdvComp_final_proj/data/MH_full_$time.csv", 
-          DataFrame(Matrix(beta_draws)))
-CSV.write("/Users/atlan/Adv_computing/AdvComp_final_proj/data/MH_full_acc_prob_$time.csv", 
-          DataFrame(reshape([acc_prob], length([acc_prob]), 1)))
+time_run = @elapsed beta_draws, acc_prob = run_MH(10000, 1000)
+time_run = round(time_run, digits = 4)
+CSV.write("/Users/atlan/Adv_computing/AdvComp_final_proj/data/MH_full_$time_run.csv", 
+          DataFrame(beta_draws, :auto))
+CSV.write("/Users/atlan/Adv_computing/AdvComp_final_proj/data/MH_full_acc_prob_$time_run.csv", 
+          DataFrame(reshape([acc_prob], length([acc_prob]), 1), :auto))
 
