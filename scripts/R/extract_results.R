@@ -133,9 +133,10 @@ key <- time %>% distinct(method) %>%
 ess  %>%
   inner_join(time %>%  select(mean, method)) %>% 
   mutate(ESSS = ESS/(mean*60)) %>% 
-  inner_join(key %>% mutate(DNC = ifelse(DNC == "", "non-D~'&'~C", DNC),
+  inner_join(key %>% mutate(DNC = ifelse(DNC == "", "non-D~'&'~C", "D~'&'~C"),
                             DNC = factor(DNC, levels = c("non-D~'&'~C", "D~'&'~C")),
-                            main = factor(main, level = c("MH", "Normal Approx", "GLM")))) %>% 
+                            main = factor(main, level = c("MH", "Normal Approx.", "GLM"),
+                                          labels = c("MH", "Normal~''~Approx.", "GLM")))) %>% 
   inner_join(tibble(Vars = unique(estimates$Vars),
                     sym = paste0("beta[", 0:4, "]"))) %>% 
   mutate(group = fct_reorder(nice, ESSS),
@@ -150,7 +151,6 @@ ess  %>%
   ylab("Effective Sample Size per Second")+
   xlab("")+
   ylim(c(0,60000))
-
   
 ## Time comparison plot
 time %>% inner_join(key) %>% 
