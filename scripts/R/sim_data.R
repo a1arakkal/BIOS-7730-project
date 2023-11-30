@@ -1,4 +1,4 @@
-# This script create the simulated logistic regression data that is used in
+# This script creates the simulated logistic regression data that is used in
 # the analysis.
 
 simdata <- function(n, beta, rho = 0.1) {
