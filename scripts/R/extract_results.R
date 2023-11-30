@@ -194,5 +194,4 @@ estimates %>% select(-nice) %>%  inner_join(key) %>%
   geom_hline(aes(yintercept = true),linetype="dashed", color = "red") +
   ylab("Estimate (95% CI)")+
   xlab("")+
-  ggtitle(expression(beta[0]))+
   theme(plot.title = element_text(hjust = 0.5))
