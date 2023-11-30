@@ -2,8 +2,6 @@
 
 using CSV, DataFrames, Statistics, Distributions, LinearAlgebra, Optim, NLSolversBase, BenchmarkTools, Random, Distributed, MLUtils, GLM
 
-Threads.nthreads()
-
 ###################
 #### Functions ####
 ###################
