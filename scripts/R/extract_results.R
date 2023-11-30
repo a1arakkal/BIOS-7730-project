@@ -133,22 +133,23 @@ key <- time %>% distinct(method) %>%
 ess  %>%
   inner_join(time %>%  select(mean, method)) %>% 
   mutate(ESSS = ESS/(mean*60)) %>% 
-  inner_join(key %>% mutate(DNC = ifelse(DNC == "", "non-D&C", DNC),
-                            DNC = factor(DNC, levels = c("non-D&C", "D&C")),
-                            main = factor(main, level = c("MH", "Normal Approx.", "GLM")))) %>% 
+  inner_join(key %>% mutate(DNC = ifelse(DNC == "", "non-D~'&'~C", DNC),
+                            DNC = factor(DNC, levels = c("non-D~'&'~C", "D~'&'~C")),
+                            main = factor(main, level = c("MH", "Normal Approx", "GLM")))) %>% 
+  inner_join(tibble(Vars = unique(estimates$Vars),
+                    sym = paste0("beta[", 0:4, "]"))) %>% 
   mutate(group = fct_reorder(nice, ESSS),
-         var = factor(Vars)) %>% 
+         var = factor(sym)) %>% 
   ggplot(aes(x=group, y = ESSS, fill = program)) + 
   geom_bar(stat = "identity") +
   theme(legend.title=element_blank()) +
   scale_fill_hue(c = 40) +
-  facet_grid(main + DNC~var, scales = "free_y")+
+  facet_grid(main + DNC~var, scales = "free_y", labeller=label_parsed)+
   coord_flip() +
   geom_text(aes(label = nice(ESSS,2),hjust = -0.1))+
   ylab("Effective Sample Size per Second")+
   xlab("")+
-  ylim(c(0,45000))
-
+  ylim(c(0,60000))
 
   
 ## Time comparison plot
