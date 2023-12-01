@@ -6,7 +6,7 @@ The repository is structed as follows:
 
 
 # `jobs`
-  - contains the job text files used for HPC job submisson for the MH approaches. All normal appoximation implementations were conducted in qlogin sessions.
+  - Contains the job text files used for HPC job submisson for the MH approaches. All normal appoximation implementations were conducted in qlogin sessions.
 
 # `scripts`
  - ## `Julia`
