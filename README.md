@@ -30,7 +30,7 @@ The repository is structed as follows:
     -  ### `glm.R`
        - R script to run simple logistic regression model on the full data.
     - ### `sim_data.R`
-      - R-script to generate the simulated logistic regression data used in the various analyses.
+      - R script to generate the simulated logistic regression data used in the various analyses.
     -  ### `extract_results.R`
         - R script to extract results from all methods employed in the various analyses. Also contains scripts to plot comparisons of results. 
     
